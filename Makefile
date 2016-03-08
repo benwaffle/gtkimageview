@@ -1,7 +1,7 @@
 
 
-CFLAGS=`pkg-config --cflags gtk+-3.0`
-LDFLAGS=`pkg-config --libs gtk+-3.0` -lm
+CFLAGS=`pkg-config --cflags gtk+-3.0 libsoup-2.4`
+LDFLAGS=`pkg-config --libs gtk+-3.0 libsoup-2.4` -lm
 
 
 
@@ -14,7 +14,7 @@ vala_demo.o: vala_demo.c gtkimageview.vapi
 	$(CC) $(CFLAGS) -c vala_demo.c
 
 vala_demo.c: vala_demo.vala
-	valac --pkg gtk+-3.0 gtkimageview.vapi vala_demo.vala -C -g
+	valac --pkg gtk+-3.0 --pkg libsoup-2.4 gtkimageview.vapi vala_demo.vala -C -g
 
 
 gtkimageview.o: gtkimageview.c gtkimageview.h
